@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using MyBirthday.Models;
+using MyBirthday.ViewModels;
 
 namespace MyBirthday
 {
@@ -30,6 +32,17 @@ namespace MyBirthday
             //if (!App.ViewModel.IsDataLoaded) {
             //    App.ViewModel.LoadData();
             //}
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            ((MainPageViewModel) DataContext).AddBirthday();
+        }
+
+        private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = e.AddedItems[0] as Birthday;
+            ((MainPageViewModel)DataContext).ViewBirthday(item);
         }
     }
 }

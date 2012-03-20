@@ -6,6 +6,12 @@ namespace MyBirthday.ViewModels
     public class BirthdayPageViewModel : NotifyPropertyChangedBase
     {
         private Birthday birthday;
+
+        public BirthdayPageViewModel(int id)
+        {
+
+        }
+
         public Birthday Birthday
         {
             get { return birthday; }
