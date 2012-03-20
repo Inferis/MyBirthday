@@ -1,11 +1,17 @@
 ﻿using System;
+using System.Data.Linq.Mapping;
 using MyBirthday.Helpers;
 
 namespace MyBirthday.Models
 {
+    [Table]
     public class Birthday : NotifyPropertyChangedBase
     {
+        [Column(IsDbGenerated = true, IsPrimaryKey = true)]
+        public int Id { get; set; }
+
         private string category;
+        [Column]
         public string Category
         {
             get { return category; }
@@ -17,6 +23,7 @@ namespace MyBirthday.Models
         }
 
         private string name;
+        [Column]
         public string Name
         {
             get { return name; }
@@ -28,6 +35,7 @@ namespace MyBirthday.Models
         }
 
         private DateTime date;
+        [Column]
         public DateTime Date
         {
             get { return date; }
@@ -38,8 +46,9 @@ namespace MyBirthday.Models
             }
         }
 
-        private Uri pictureUri;
-        public Uri PictureUri
+        private string pictureUri;
+        [Column]
+        public string PictureUri
         {
             get { return pictureUri; }
             set
