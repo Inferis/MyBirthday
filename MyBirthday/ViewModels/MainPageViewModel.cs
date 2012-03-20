@@ -24,14 +24,10 @@ namespace MyBirthday.ViewModels
 
         public void AddBirthday()
         {
-            ((App)Application.Current).RootFrame.Navigate(new Uri("/BirthdayPage.xaml"));
         }
 
         public void ViewBirthday(Birthday item)
         {
-            if (item == null)
-                return;
-            ((App)Application.Current).RootFrame.Navigate(new Uri(string.Format("/BirthdayPage.xaml?id={0}", item.Id)));
         }
     }
 }

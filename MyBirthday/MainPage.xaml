@@ -53,7 +53,7 @@
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsMenuEnabled="True">
-        	<shell:ApplicationBarIconButton IconUri="/icons/appbar.add.rest.png" IsEnabled="True" Text="Add birthday"/>
+        	<shell:ApplicationBarIconButton IconUri="/icons/appbar.add.rest.png" IsEnabled="True" Text="Add birthday" Click="AddButton_Click"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 

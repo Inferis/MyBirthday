@@ -36,13 +36,15 @@ namespace MyBirthday
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            ((MainPageViewModel) DataContext).AddBirthday();
+            NavigationService.Navigate(new Uri("/BirthdayPage.xaml", UriKind.Relative));
         }
 
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var item = e.AddedItems[0] as Birthday;
-            ((MainPageViewModel)DataContext).ViewBirthday(item);
+            if (item == null)
+                return;
+            NavigationService.Navigate(new Uri(string.Format("/BirthdayPage.xaml?id={0}", item.Id), UriKind.Relative));
         }
     }
 }

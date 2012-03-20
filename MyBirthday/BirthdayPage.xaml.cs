@@ -20,9 +20,12 @@ namespace MyBirthday
         {
             InitializeComponent();
 
-            int id;
-            int.TryParse(NavigationContext.QueryString["id"], out id);
-            DataContext = new BirthdayPageViewModel(id);
+            Loaded += (s, e) => {
+                int id = 0;
+                if (NavigationContext.QueryString.ContainsKey("id") && !string.IsNullOrEmpty(NavigationContext.QueryString["id"]))
+                    int.TryParse(NavigationContext.QueryString["id"], out id);
+                DataContext = new BirthdayPageViewModel(id);
+            };
         }
     }
 }
