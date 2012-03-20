@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Linq;
 using System.Data.Linq.Mapping;
 using MyBirthday.Helpers;
 
@@ -10,16 +11,16 @@ namespace MyBirthday.Models
         [Column(IsDbGenerated = true, IsPrimaryKey = true)]
         public int Id { get; set; }
 
-        private string category;
         [Column]
-        public string Category
+        public int CategoryId { get; set; }
+
+        private EntityRef<Category> category = new EntityRef<Category>();
+
+        [Association(ThisKey = "CategoryId", IsForeignKey = true, OtherKey = "Id", Storage = "category")]
+        public Category Category
         {
-            get { return category; }
-            set
-            {
-                OnPropertyChanged("Category");
-                category = value;
-            }
+            get { return category.Entity; }
+            set { category.Entity = value; }
         }
 
         private string name;

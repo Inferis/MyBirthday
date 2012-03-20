@@ -22,7 +22,7 @@ namespace MyBirthday.Models
             }
             else
             {
-                Title = birthdays.First().Category;
+                Title = birthdays.First().Category.Name;
                 Birthdays = new ObservableCollection<Birthday>(birthdays);
             }
         }
