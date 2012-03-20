@@ -6,7 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace iPASoftware.iRAD.Basics.Extensions
+namespace MyBirthday.Helpers
 {
     public static class NotifyPropertyChangedExtensions
     {

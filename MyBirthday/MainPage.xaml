@@ -23,7 +23,7 @@
     	</Grid.RowDefinitions>
  
         <!--Panorama control-->
-        <controls:Panorama Title="my application" ItemsSource="{Binding BirthdayLists}" Grid.RowSpan="2">
+        <controls:Panorama Title="my birthdays" ItemsSource="{Binding BirthdayLists}" Grid.RowSpan="2">
             <controls:Panorama.Background>
                 <ImageBrush ImageSource="PanoramaBackground.png"/>
             </controls:Panorama.Background>

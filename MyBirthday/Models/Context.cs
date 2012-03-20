@@ -67,5 +67,13 @@ namespace MyBirthday.Models
             var result = Birthdays.Where(bd => bd.Category.Name == category).OrderBy(x => x.Date).ThenBy(x => x.Name).ToList();
             return result;
         }
+
+        public Birthday GetOrCreateBirthday(int id)
+        {
+            var birthday = Birthdays.FirstOrDefault(x => x.Id == id);
+            if (birthday == null)
+                birthday = new Birthday() { Id = id, Date = DateTime.Now };
+            return birthday;
+        }
     }
 }

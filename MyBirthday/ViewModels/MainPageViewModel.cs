@@ -14,9 +14,13 @@ namespace MyBirthday.ViewModels
         public MainPageViewModel()
         {
             Context.InitializeIfEmpty();
-            
-            using (var context = new Context())
-            {
+
+            Refresh();
+        }
+
+        public void Refresh()
+        {
+            using (var context = new Context()) {
                 BirthdayLists = new ObservableCollection<BirthdayList>(context
                     .GetCategories().Select(category => new BirthdayList(context.BirthdaysForCategory(category))));
             }
